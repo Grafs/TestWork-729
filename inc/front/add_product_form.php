@@ -8,7 +8,14 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 ?>
+
+<?php if(!empty($_POST['tsk_res'])) : ?>
+	<p class="tsk-result">
+		<?php _e('Product successfully added', 'tsk') ?>
+	</p>
+<?php endif; ?>
 
 <form class="tsk-product-adder" method="post">
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: The test task for AbeloHost\n"
-"POT-Creation-Date: 2022-09-05 23:31+0300\n"
+"POT-Creation-Date: 2022-09-06 01:40+0300\n"
 "PO-Revision-Date: 2022-09-05 23:31+0300\n"
 "Last-Translator: Oleg Medinskiy\n"
 "Language-Team: Oleg Medinskiy\n"
@@ -16,8 +16,8 @@ msgstr ""
 "X-Poedit-WPHeader: test-abelohost.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
@@ -50,34 +50,38 @@ msgid ""
 msgstr ""
 
 #: inc/front/add_product_form.php:16
-msgid "Add title"
+msgid "Product successfully added"
 msgstr ""
 
 #: inc/front/add_product_form.php:23
+msgid "Add title"
+msgstr ""
+
+#: inc/front/add_product_form.php:30
 msgid "Add price"
 msgstr ""
 
-#: inc/front/add_product_form.php:30 inc/tasks/task1.php:83
+#: inc/front/add_product_form.php:37 inc/tasks/task1.php:83
 msgid "Add image"
 msgstr ""
 
-#: inc/front/add_product_form.php:32 inc/tasks/task1.php:85
+#: inc/front/add_product_form.php:39 inc/tasks/task1.php:85
 msgid "Click for add image"
 msgstr ""
 
-#: inc/front/add_product_form.php:37 inc/tasks/task1.php:89
+#: inc/front/add_product_form.php:44 inc/tasks/task1.php:89
 msgid "Click for remove image"
 msgstr ""
 
-#: inc/front/add_product_form.php:42
+#: inc/front/add_product_form.php:49
 msgid "Add product type"
 msgstr ""
 
-#: inc/front/add_product_form.php:57 inc/tasks/task1.php:115
+#: inc/front/add_product_form.php:64 inc/tasks/task1.php:115
 msgid "Reset"
 msgstr ""
 
-#: inc/front/add_product_form.php:58 inc/tasks/task1.php:116
+#: inc/front/add_product_form.php:65 inc/tasks/task1.php:116
 msgid "Submit"
 msgstr ""
 

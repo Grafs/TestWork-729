@@ -87,6 +87,18 @@ Product adder styles
 	opacity: 0.7;
 }
 
+.tsk-result {
+	border: 1px solid #03bf03;
+	padding: 15px 30px;
+	margin-top: 20px;
+	color: #000;
+}
+
+@media screen and (max-width:480px){
+	.tsk-form-field label{
+		flex: 0 1 100%;
+	}
+}
 
 
 

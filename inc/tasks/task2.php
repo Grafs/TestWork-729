@@ -110,8 +110,11 @@ if( ! class_exists( 'TSK_AbeloHost_Test_Front' ) ) {
 					set_post_thumbnail( $post_id, (int) $_POST['add_prod']['tsk_add_img_id'] );
 				}
 
+				$_POST['tsk_res'] = true;
+
 			}else{
-				echo $post_id->get_error_message();
+				//echo $post_id->get_error_message();
+				$_POST['tsk_res'] = false;
 			}
 
 		}
