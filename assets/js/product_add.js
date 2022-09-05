@@ -1,0 +1,81 @@
+"use strict";
+
+/**
+ * Product adder script
+ */
+(function($) {
+document.addEventListener('DOMContentLoaded', function () {
+
+			let settings = {
+				bimage: document.getElementById('tsk_image_button'), //Image button
+				brem: document.getElementById('tsk_rem_button'), //Remove image button
+				burl: document.getElementById('tsk_image_url'),  //Image url field
+				bid: document.getElementById('tsk_image_id'),  //Image id field
+				bsel: document.getElementById('tsk_add_ptype'), //Select field
+				btitle: document.getElementById('tsk_add_title'), //Select field
+				bprice: document.getElementById('tsk_add_summ'), //Select field
+				breset: document.getElementById('tsk_reset'), //Reset button
+				bsave: document.getElementById('tsk_submit') //Submit button
+			}
+
+			/**
+			 * Add image
+			 */
+			function tsk_img_popup(e) {
+				e.preventDefault();
+
+				if ( !settings.bimage.classList.contains('rem') ) {
+
+					let custom_uploader = wp.media({
+									library: { type : 'image' },
+									multiple: false
+
+							}).on('select', function() {
+									let attachment = custom_uploader.state().get('selection').first().toJSON();
+									settings.bimage.innerHTML = `<img src="${attachment.url}">`;
+									settings.burl.value = attachment.url;
+									settings.bid.value = attachment.id;
+									settings.bimage.classList.add('rem');
+									settings.brem.classList.add('rem');
+
+					}).open();
+				}
+
+			}
+
+			settings.bimage?.addEventListener('click', tsk_img_popup);
+
+
+			/**
+			 * Remove image
+			 */
+			function tsk_img_popup_remove(e) {
+				e.preventDefault();
+
+				let purl = settings.bimage.getAttribute('data-pimg'); //Placeholder image url
+				settings.bimage.innerHTML = `<img src="${purl}">`;
+				settings.bimage.classList.remove('rem');
+				settings.brem.classList.remove('rem');
+				settings.burl.value = '';
+				settings.bid.value = '';
+
+			}
+
+			settings.brem?.addEventListener('click', tsk_img_popup_remove);
+			
+			/**
+			 * Reset fields 
+			 */
+			function tsk_reset_fields(e) {
+				e.preventDefault();
+
+					tsk_img_popup_remove(e);
+					settings.bsel.value = '';
+					settings.btitle.value = '';
+					settings.bprice.value = '';
+			}
+
+			settings.breset?.addEventListener('click', tsk_reset_fields);
+
+});
+})(jQuery, document);

@@ -1,0 +1,40 @@
+// Color, font size, opacity placeholder
+
+@mixin placeholder($color, $size:"", $opac:"") {
+  &::-webkit-input-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+	@if $opac != "" {
+      opacity:  $opac;
+    }
+  }
+  &:-moz-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+	@if $opac != "" {
+      opacity:  $opac;
+    }
+  }
+  &::-moz-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+	@if $opac != "" {
+      opacity:  $opac;
+    }
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+	@if $opac != "" {
+      opacity:  $opac;
+    }
+  }
+}

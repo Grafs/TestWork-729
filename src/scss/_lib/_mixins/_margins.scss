@@ -1,0 +1,21 @@
+// Margins and Paddings functions.
+
+@function margins($size) {
+  @return $margin-base * $size;
+}
+
+@function paddings($size) {
+  @return $padding-base * $size;
+}
+
+
+//@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+//  $min: breakpoint-min($name, $breakpoints);
+//  @if $min {
+//    @media screen and (min-width: $min) {
+//      @content;
+//    }
+//  } @else {
+//    @content;
+//  }
+//}

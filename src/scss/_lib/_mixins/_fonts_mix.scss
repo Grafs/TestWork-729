@@ -1,0 +1,142 @@
+@function get-font-char($var){
+  @return unquote("\"")+unquote(str-insert($var,"\\", 1))+unquote("\"");
+}
+
+%def-font-class-all {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    text-decoration: none;
+    text-transform: none;
+    //vertical-align: middle;
+    display:inline-block;
+    text-rendering: auto;
+    //line-height: 1;
+    letter-spacing: 0;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+    padding:0;
+    margin:0;
+};
+
+@mixin creat-ico-from-data($fontName) {
+  [data-icon-#{to-lower-case($fontName)}]:before{
+    font-family:$fontName;
+    content:attr(data-icon-#{to-lower-case($fontName)});
+  }
+  [data-icon-#{to-lower-case($fontName)}-after]:after{
+    font-family:$fontName;
+    content:attr(data-icon-#{to-lower-case($fontName)}-after);
+  }
+  [data-icon-#{to-lower-case($fontName)}-before]:before{
+    font-family:$fontName;
+    content:attr(data-icon-#{to-lower-case($fontName)}-before);
+  }
+}
+//Создаем контент для одной иконки шрифта
+@mixin class-sfontiko($var, $fontName){
+  @extend %set-font-#{to-lower-case($fontName)};
+  @extend %def-font-class-all;
+  content:get-font-char($var);
+}
+
+//Формирование иконок из массива
+//$arr-triko-iko:('triko-ar1l','triko-ar1r','triko-ar1t');
+//@include creat-font-iko($arr-triko-iko, $arr-ico-font-triko, 'triko', 'prefix-');
+//
+//arrvar: array Массив заданных имен переменных шрифта
+//arrfont: array Массив переменных шрифта из scss шрифта
+//fontName: string Название шрифта
+//pref: string Префикс класа шрифта
+@mixin creat-font-iko($arrvar, $arrfont, $fontName,  $pref:null) {
+  .#{$fontName}:before, .#{$fontName}:after{
+      @extend %set-font-#{to-lower-case($fontName)};
+      @extend %def-font-class-all;
+  }
+  @each $var in $arrvar {
+    $varars: map_get($arrfont, $var);
+      @if($varars){
+        $class-name: nth($varars, 2);
+        $glifvar: nth($varars, 4);
+        @if($var == $class-name){
+          .#{$pref}-#{$class-name}:before{
+              content:get-font-char($glifvar);
+          }
+        }
+      }
+  }
+}
+
+//Формирование иконок из массива по правилам fontavesome? ставим префикс "fa-"
+@mixin creat-fontaw-iko($arrvar, $arrfont, $fontName,  $pref:null) {
+  .#{$pref},.#{$pref}:before,.#{$pref}:after{
+      @extend %set-font-#{to-lower-case($fontName)};
+      @extend %def-font-class-all;
+  }
+  @each $var in $arrvar {
+    $varars: map_get($arrfont, $var);
+      @if($varars){
+        $class-name: nth($varars, 3);
+        $class-if: nth($varars, 2);
+        $glifvar: nth($varars, 4);
+        @if($var == $class-if){
+          .#{$pref}-#{$class-name}:before{
+              content:get-font-char($glifvar);
+          }
+        }
+      }
+  }
+}
+
+@mixin rotate-char($int){
+  -webkit-transform: rotate(#{$int}deg);
+  -ms-transform: rotate(#{$int}deg);
+   transform: rotate(#{$int}deg);
+}
+
+@mixin rotate-iko($direct) {
+  @if(is-number($direct)){
+      @include rotate-char($direct);
+  }@else{
+    @if($direct == left){ @include rotate-char(-90);
+    } @else if($direct == right) { @include rotate-char(90);
+    } @else if($direct == top or $direct == bottom) { @include rotate-char(180);
+    } @else if($direct == fliph) {
+        //filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+        -webkit-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+        transform: scale(-1, 1);
+    } @else if($direct == flipv) {
+        //filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+        -webkit-transform: scale(1, -1);
+        -ms-transform: scale(1, -1);
+        transform: scale(1, -1);
+    } @else if($direct == reset) {
+        //filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+    }
+  }
+}
+
+@function calcFluidFontSize($f-min, $f-max, $w-min, $w-max, $units: px) {
+  $f-min: strip-unit($f-min);
+  $f-max: strip-unit($f-max);
+  $w-min: strip-unit($w-min);
+  $w-max: strip-unit($w-max);
+
+  $k: ($f-max - $f-min)/($w-max - $w-min);
+  $b: $f-min - $k * $w-min;
+
+  $b: $b + $units;
+
+  @return calc( #{$k} * 100vw + #{$b} );
+}
+

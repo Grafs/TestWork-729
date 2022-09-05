@@ -1,0 +1,73 @@
+// Toggles
+//
+// Used in conjunction with global variables to enable certain theme features.
+
+@mixin box-shadow($shadow...) {
+  @if $enable-shadows {
+    box-shadow: $shadow;
+  }
+}
+
+@mixin transition($transition...) {
+  @if $enable-transitions {
+    transition: $transition;
+  }
+}
+
+// Utilities
+//@import "_mixins/indent";
+//@import "_mixins/is";
+//@import "_mixins/convert";
+//@import "_mixins/rem";
+//@import "_mixins/colors";
+//@import "_mixins/unitconversion";
+//@import "_mixins/breakpoints";
+//@import "_mixins/hover";
+//@import "_mixins/image";
+//@import "_mixins/label";
+//@import "_mixins/reset-filter";
+//@import "_mixins/resize";
+//@import "_mixins/screen-reader";
+//@import "_mixins/size";
+//@import "_mixins/tab-focus";
+//@import "_mixins/reset-text";
+//@import "_mixins/text-emphasis";
+//@import "_mixins/text-hide";
+//@import "_mixins/text-truncate";
+//@import "_mixins/fonts_mix";
+@import "_mixins/fonts_size";
+//@import "_mixins/centering";
+//@import "_mixins/blur.scss";
+//@import "_mixins/placeholder";
+// // Components
+//@import "_mixins/alert";
+//@import "_mixins/buttons";
+//@import "_mixins/cards";
+//@import "_mixins/pagination";
+//@import "_mixins/lists";
+//@import "_mixins/list-group";
+//@import "_mixins/nav-divider";
+//@import "_mixins/forms";
+//@import "_mixins/progress";
+//@import "_mixins/table-row";
+//@import "_mixins/callme.scss";
+//@import "_mixins/triangle";
+//@import "_mixins/triangle_mask";
+//@import "_mixins/brand-color";
+
+// // Skins
+//@import "_mixins/background-variant";
+//@import "_mixins/border-radius";
+//@import "_mixins/gradients";
+
+// // Layout
+//@import "_mixins/clearfix";
+//@import "_mixins/center-block";
+// @import "_mixins/navbar-align";
+//@import "_mixins/grid-framework";
+//@import "_mixins/grid";
+//@import "_mixins/pulls";
+//@import "_mixins/sprites";
+//@import "_mixins/fsizes";
+//@import "_mixins/slide-control";
+//@import "_mixins/margins";

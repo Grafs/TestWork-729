@@ -1,0 +1,116 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: The test task for AbeloHost\n"
+"POT-Creation-Date: 2022-09-05 23:31+0300\n"
+"PO-Revision-Date: 2022-09-05 23:31+0300\n"
+"Last-Translator: Oleg Medinskiy\n"
+"Language-Team: Oleg Medinskiy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: test-abelohost.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: inc/admin/class-dependences.php:42
+#, php-format
+msgid ""
+"This plugin will function only if the WooCommerce plugin is active. Please "
+"%1$sreturn to plugin page%2$s and install or activate WooCommerce plugin"
+msgstr ""
+
+#: inc/admin/class-dependences.php:54
+#, php-format
+msgid ""
+"This plugin will function only if the <b>WordPress version larger %3$s</b>. "
+"%1$sReturn to plugin page%2$s"
+msgstr ""
+
+#: inc/admin/class-dependences.php:66
+#, php-format
+msgid ""
+"This plugin will function only if the <b>WooCommerce version larger %3$s</"
+"b>. %1$sReturn to plugin page%2$s"
+msgstr ""
+
+#: inc/admin/class-dependences.php:81
+#, php-format
+msgid ""
+"This plugin will function only if the WooCommerce plugin is active. Please "
+"%1$s install and activate WooCommerce plugin %2$s "
+msgstr ""
+
+#: inc/front/add_product_form.php:16
+msgid "Add title"
+msgstr ""
+
+#: inc/front/add_product_form.php:23
+msgid "Add price"
+msgstr ""
+
+#: inc/front/add_product_form.php:30 inc/tasks/task1.php:83
+msgid "Add image"
+msgstr ""
+
+#: inc/front/add_product_form.php:32 inc/tasks/task1.php:85
+msgid "Click for add image"
+msgstr ""
+
+#: inc/front/add_product_form.php:37 inc/tasks/task1.php:89
+msgid "Click for remove image"
+msgstr ""
+
+#: inc/front/add_product_form.php:42
+msgid "Add product type"
+msgstr ""
+
+#: inc/front/add_product_form.php:57 inc/tasks/task1.php:115
+msgid "Reset"
+msgstr ""
+
+#: inc/front/add_product_form.php:58 inc/tasks/task1.php:116
+msgid "Submit"
+msgstr ""
+
+#: inc/tasks/task1.php:44
+msgid "Test AbeloHost tab"
+msgstr ""
+
+#: inc/tasks/task1.php:94
+msgid "Product created"
+msgstr ""
+
+#: inc/tasks/task1.php:102
+msgid "Type product"
+msgstr ""
+
+#: inc/tasks/task1.php:105
+msgid "Select..."
+msgstr ""
+
+#: inc/tasks/task2.php:58
+msgid "Add Product"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#. Description of the plugin/theme
+msgid "The test task for AbeloHost"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://www.wpbloging.com"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Oleg Medinskiy"
+msgstr ""

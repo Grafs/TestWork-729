@@ -1,0 +1,28 @@
+// HSB color to hex
+@function hsb($h-hsb, $s-hsb, $b-hsb, $a: 1) {
+  @if $b-hsb == 0 {
+    @return hsla(0, 0, 0, $a)
+  } @else {
+    $l-hsl: ($b-hsb/2) * (2 - ($s-hsb/100));
+    $s-hsl: ($b-hsb * $s-hsb) / if($l-hsl < 50, $l-hsl * 2, 200 - $l-hsl * 2);
+    @return hsla($h-hsb, $s-hsl, $l-hsl, $a);
+  }
+}
+
+
+// dinamic-color($color-set, $color-etalon, lighten, darken)
+@function dinamic-color($color1, $color2, $prcl: 10%, $prcd: 10%, $to: light) {
+	@if ( $to == light ) {
+		@if (lightness($color1) < lightness($color2)) {
+			@return lighten($color1, $prcl); // Lighter backgorund, return dark color
+		} @else {
+			@return darken($color1, $prcd); // Darker background, return light color
+		}
+	} @else {
+		@if (lightness($color1) < lightness($color2)) {
+			@return darken($color1, $prcl); // Lighter backgorund, return dark color
+		} @else {
+			@return lighten($color1, $prcd); // Darker background, return light color
+		}
+	}
+}

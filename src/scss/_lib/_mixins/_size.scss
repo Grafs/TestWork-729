@@ -1,0 +1,6 @@
+// Sizing shortcuts
+
+@mixin size($width, $height: "auto") {
+  width: $width;
+  height: $height;
+}

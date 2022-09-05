@@ -1,0 +1,84 @@
+//CUSTOM THEME VARIABLE
+
+$padding-h: 10px; //padding in container by horizontal for all responsive blocks
+$indent-v: 80px;  // indentation between blocks by vertically
+$h-indent: 20px;  // global indentation between headings by vertically
+
+$main-color: #0082c8 !default;
+$mainl-color: #59addb !default;
+$gray-color: #9c9c9c !default;
+
+$dark-block-bg: #f2f2f2 !default;
+
+$pages-head-bg: #02304a !default;
+
+//Base font-size
+$font-size: 16px !default;
+
+//Text color
+$text-color: #00112c !default;
+
+//Heading color
+$head-color: #24292e !default;
+
+//Link color
+$link-color: $main-color !default;
+$link-color-hover: #0056b3 !default;
+$link-color-curent: #003268 !default;
+
+//Button color
+$button-color: #fff !default;
+$button-color-hover: $button-color !default;
+$button-bg: $main-color !default;
+$button-bg-hover: #171B29 !default;
+
+//Tables
+$tabe-border-color: #e6e6e6 !default;
+$tabe-bg: #fff !default;
+$tabe-th-bg: $tabe-border-color !default;
+$tabe-th-color: $text-color !default;
+$tabe-td-bg: #fff !default;
+$tabe-td-color: $text-color !default;
+$tabe-hover-bg: #f0f0f0 !default;
+$tabe-strip-bg: #f7f7f7 !default;
+
+//Forms
+$forms-border-color: #dadada !default;
+$forms-border-err-color: rgba(255, 0, 0, .31) !default;
+
+
+//Text font
+$font-serif: -apple-system,BlinkMacSystemFont,Helvetica,Roboto,"Helvetica Neue",Arial,"Segoe UI","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+//$font-serif: helvetica  !default;
+$font-mono: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+//Heading font
+$font-h: Montserrat,Arial,Helvetica,"Helvetica Neue",sans-serif;
+
+//Brakepoints
+$m-large: 1400px !default;
+$m-desctop: 1200px !default;
+$m-tablet: 992px !default;
+$m-mobile: 768px !default;
+$m-small: 576px !default;
+
+
+$h-custom-from: 401px !default;
+$h-custom-to: 480px !default;
+$h-custom: 400px !default;
+$ap-custom: 380px !default;
+$ap-custom-tab: 769px !default;
+$kn-custom: 481px !default;
+$ut-custom: 368px !default;
+$ft-custom: 420px !default;
+$ft-custom-from: 421px !default;
+$rad-custom-desk-from: 1043px !default;
+$rad-custom-mob: 460px !default;
+$rad-custom-tab: 767px !default;
+$rad-custom: 459px !default;
+$rad-custom-desk-to: 1319px !default;
+$footer-custom-to:473px !default;
+$footer-custom-from:451px !default;
+$footer-custom-frm:450px !default;
+$footer-custom:472px !default;
+$wheel-from:340px !default;
+$wheel-to: 394px !default;

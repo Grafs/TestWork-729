@@ -1,0 +1,100 @@
+@function cun($value, $unit) {
+  $units: (
+    'px': 0px,
+    'cm': 0cm,
+    'mm': 0mm,
+    '%': 0%,
+    'ch': 0ch,
+    'in': 0in,
+    'em': 0em,
+    'rem': 0rem,
+    'pt': 0pt,
+    'pc': 0pc,
+    'ex': 0ex,
+    'vw': 0vw,
+    'vh': 0vh,
+    'vmin': 0vmin,
+    'vmax': 0vmax,
+    'deg': 0deg,
+    'turn': 0turn,
+    'rad': 0rad,
+    'grad': 0grad,
+    's': 0s,
+    'ms': 0ms,
+    'Hz': 0Hz,
+    'kHz': 0kHz,
+    'dppx': 0dppx,
+    'dpcm': 0dpcm,
+    'dpi': 0dpi,
+  );
+
+  @if map-has-key($units, $unit) {
+    @return map-get($units, $unit) + $value;
+  }
+
+  @error "Unknown unit `#{$unit}`.";
+}
+
+@function tounit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function px2prc($pixels, $bazesize) {
+  @return unquote(round($pixels / ($bazesize / 100)) + '%');
+}
+
+@function prc2px($procent, $bazesize) {
+  $bazesize: $bazesize / 1%;
+  @return round(($bazesize / 100) * $procent);
+}
+
+@function rem2prc($rem) {
+  $rem: tounit($rem);
+  @return unquote(round($rem / (1 / 100)) + '%');
+}
+
+@function prc2rem($procent, $context: $font-size-root) {
+  $context: tounit($context);
+  $procent: tounit($procent);
+  @return px2rem(($context / 100) * $procent);
+}
+
+@function px2em($pixels, $context: $font-size-root) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1em;
+}
+
+@function px2rem($pixels, $context: $font-size-root) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}
+
+@function rem2px($rem, $context: $font-size-root) {
+  @if (unitless($rem)) {
+    $pixels:  1px * $rem;
+  }
+  @if (unitless($context)) {
+    $context: 1px * $context;
+  }
+  @return $rem / 1rem * $context;
+}
+
+@function em2px($em, $context: $font-size-root) {
+  @if (unitless($em)) {
+    $pixels:  1px * $em;
+  }
+  @if (unitless($context)) {
+    $context: 1px * $context;
+  }
+  @return $em / 1em * $context;
+}

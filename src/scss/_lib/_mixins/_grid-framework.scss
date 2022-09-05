@@ -1,0 +1,96 @@
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+    // Inner gutter via padding
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+  }
+  @each $breakpoint in map-keys($breakpoints) {
+    @for $i from 1 through $columns {
+      .col-#{$breakpoint}-#{$i} {
+        @extend %grid-column;
+      }
+    }
+    @include media-breakpoint-up($breakpoint) {
+      // Work around cross-media @extend (https://github.com/sass/sass/issues/1050)
+      %grid-column-float-#{$breakpoint} {
+        float: left;
+      }
+      @for $i from 1 through $columns {
+        .col-#{$breakpoint}-#{$i} {
+          @if not $enable-flex {
+            @extend %grid-column-float-#{$breakpoint};
+          }
+          @include make-col-span($i, $columns);
+        }
+      }
+      @each $modifier in (pull, push, offset) {
+        @for $i from 0 through $columns {
+          .col-#{$breakpoint}-#{$modifier}-#{$i} {
+            @include make-col-modifier($modifier, $i, $columns)
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin custom-make-grid-columns($cust-columns: $cust-grid-columns, $columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  %grid-column {
+    position: relative;
+    min-height: 1px;
+    //padding-left: ($gutter / 2);
+    //padding-right: ($gutter / 2);
+  }
+  @each $colname, $colarrys in $cust-columns{
+        @each $colnum in $colarrys{
+          .col-#{$colname}-#{$colnum}{
+            @extend %grid-column;
+          }
+          //@each $breakpoint in map-keys($breakpoints){
+            @include media-breakpoint-up($colname){
+                .col-#{$colname}-#{$colnum}{
+                  @include make-col-span($colnum, $columns);
+                }
+
+            }
+          //}
+
+        }
+
+  }
+}
+@mixin custom-make-grid-columns-dop($cust-dop-columns: $cust-grid-columns-dop, $breakpoints: $grid-breakpoints, $fixvar: $colfix) {
+  @each $namebp, $arrvar in $cust-dop-columns{
+    @each $dopname in $arrvar{
+      //@each $breakpoint in map-keys($grid-breakpoints){
+        @include media-breakpoint-up($namebp){
+          @if($dopname == fix and $fixvar){
+            @each $fixnum in $fixvar{
+            .col-#{$namebp}-#{$dopname}-#{$fixnum}{ flex:0 0 #{$fixnum}px; }
+            }
+          }
+          @if($dopname == wauto){
+            .col-#{$namebp}-#{$dopname}{ flex:1 1 auto; }
+          }
+          @if($dopname == first){
+            .col-#{$namebp}-#{$dopname}{ order: -1; }
+          }
+          @if($dopname == last){
+            .col-#{$namebp}-#{$dopname}{ order: 1; }
+          }
+
+        }
+      //}
+    }
+  }
+}
+

@@ -1,0 +1,13 @@
+//Отступы указывается часть indents
+@function indent($size, $base: $margins) {
+  @if ($size < 1 ) {
+    //@return round($base / str-slice(#{$size}, 3));
+	  @if ($size == 0){
+			@return 0;
+	  } @else {
+			@return round($base / ($size*10));
+	  }
+  } @else {
+    	@return round($base * $size);
+  }
+}

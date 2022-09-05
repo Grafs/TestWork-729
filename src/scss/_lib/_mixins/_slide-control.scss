@@ -1,0 +1,39 @@
+// slide-control(lenght hight, color, direction, bacground);
+//@include slide-control(42px, gray, right|left, true|false);
+@mixin slide-control($diagonal: 42px, $color: gray, $direct: right, $back: false) {
+  display: inline-block;
+  //position: relative;
+  $side: round($diagonal / 1.414);
+  $width: $side;
+  $height: $side;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: $width;
+    height: $height;
+    border-top: 1px solid $color;
+    border-right: 1px solid $color;
+    top: 50%;
+    left: 50%;
+    @if ($direct == 'right') {
+      transform: translate(-50%, -50%) rotate(45deg);
+      margin-left: $diagonal / 6 * -1;
+    } @else {
+      transform: translate(-50%, -50%) rotate(-135deg);
+      margin-left: $diagonal / 6;
+    }
+  }
+  @if ($back != false) {
+    &:before {
+      border-top: 7px solid rgba(0, 0, 0, 0.1);
+      border-right: 7px solid rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+  } @else {
+     &:before {display: none;}
+  }
+}
+
+

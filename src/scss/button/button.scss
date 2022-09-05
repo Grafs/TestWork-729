@@ -1,0 +1,111 @@
+//Button styles
+
+.nep-button-container{
+	width: 100%;
+	margin: 20px 0 20px;
+	display: grid;
+	justify-items: center;
+	justify-content: left;
+
+	.nep-button{
+		all: unset;
+		background-color: var(--nep-button-background-color);
+		border-radius: 0;
+		padding: 16px 22px;
+		margin-bottom: 5px;
+		color: var(--nep-button-text-color);
+		text-align: center;
+		font-weight: 700;
+		font-family: sans-serif;
+		font-size: 16px;
+		cursor: pointer;
+		transition: all .4s ease !important;
+		box-sizing: border-box;
+
+		.nep-button-content svg{
+			fill: var(--nep-button-text-color);
+			vertical-align: middle;
+			margin-top: -3px;
+			margin-left: 2px;
+			transition: all .4s ease !important;
+		}
+	}
+
+	.nep-button-logos{
+		display: flex;
+		gap: 4px;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		img, svg{
+			max-width: 32px;
+		}
+	}
+
+	.nep-button-checkout-subtext{
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	.nep-effect-slide {
+		border: 2px solid var(--nep-button-background-color) !important;
+		background: linear-gradient(to right,var(--nep-button-text-color) 50%,var(--nep-button-background-color) 50%) !important;
+		background-size: 200% 100% !important;
+		background-origin: border-box !important;
+		background-position: right bottom !important;
+		transition: all .4s ease !important;
+		outline-color: transparent !important;
+
+		&:hover, &:focus {
+			color: var(--nep-button-background-color) !important;
+			background-position: left bottom !important;
+
+			.nep-button-content svg{
+				fill: var(--nep-button-background-color) !important;
+			}
+		}
+
+	}
+
+	.nep-effect-invert {
+		border: 2px solid var(--nep-button-background-color) !important;
+		transition: all .4s ease !important;
+		outline-color: transparent !important;
+
+		&:hover, &:focus {
+			color: var(--nep-button-background-color) !important;
+			background: var(--nep-button-text-color) !important;
+
+			.nep-button-content svg{
+				fill: var(--nep-button-background-color) !important;
+			}
+		}
+
+	}
+
+
+	.nep-button-hide{
+		display: none;
+	}
+
+}
+
+.nep-minicart-button{
+	display: block;
+	width: 100%;
+
+	.nep-button{
+		font-size: 12px !important;
+		padding: 10px 12px !important;
+		width: 100% !important;
+	}
+
+	.nep-button-container .nep-button-logos img,
+	.nep-button-container .nep-button-logos svg {
+	  max-width: 23px !important;
+	}
+}
+
+.hide{
+	display: none;
+}

@@ -1,0 +1,61 @@
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 1);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 2);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 5);
+  $sprite-offset-y: nth($sprite, 6);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+@mixin sprite-position-absol($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-img: nth($sprite, 7);
+  background-image: url($sprite-img);
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+@mixin sprite-bgwh($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+@mixin sprite-pwh($sprite) {
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+@mixin sprite-wh($sprite) {
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+
+
+
+//Вывод всех спрайтов
+//@include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 7);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
