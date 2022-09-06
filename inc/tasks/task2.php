@@ -67,7 +67,7 @@ if( ! class_exists( 'TSK_AbeloHost_Test_Front' ) ) {
 			//Script & style for frontend product add page
 			if(is_page_template('add_product.php')){
 				wp_enqueue_media();
-				wp_enqueue_style( 'tsk_padder_style', TSK_PLUGIN_URL . 'assets/css/product_add.css', array(),TSK_VERSION, );
+				wp_enqueue_style( 'tsk_padder_style', TSK_PLUGIN_URL . 'assets/css/product_add.css', array(), TSK_VERSION );
 				wp_enqueue_script( 'tsk_padder_script', TSK_PLUGIN_URL . 'assets/js/product_add.js', array(), TSK_VERSION, true);
 			}
         }
@@ -84,11 +84,10 @@ if( ! class_exists( 'TSK_AbeloHost_Test_Front' ) ) {
 				'post_status' => 'publish',
 				'post_type' => "product",
 			);
+
 			$post_id = wp_insert_post( $product_data );
 
 			if( !is_wp_error($post_id) ){
-
-				$post   = get_post( $post_id ); // Where 123 is the ID
 
 				if(!empty($_POST['add_prod']['tsk_add_summ'])){
 					update_post_meta( $post_id, '_price', $_POST['add_prod']['tsk_add_summ'] );

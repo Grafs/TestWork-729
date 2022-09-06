@@ -50,6 +50,7 @@ Product adder styles
 	border: 1px solid #cacaca;
 	border-radius: 6px;
 	cursor: pointer;
+	background-color: #fff;
 }
 
 #tsk_image_button img{
@@ -76,6 +77,7 @@ Product adder styles
 	text-align: center;
 	display: none;
 	cursor: pointer;
+	z-index: 2;
 }
 
 #tsk_rem_button.rem {
@@ -92,6 +94,19 @@ Product adder styles
 	padding: 15px 30px;
 	margin-top: 20px;
 	color: #000;
+}
+
+#tsk_image_url{
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	width: 0px;
+	height: 0px;
+	padding: 0;
+	border: 0 !important;
+	z-index: -1;
+	outline: 0 !important;
+
 }
 
 @media screen and (max-width:480px){

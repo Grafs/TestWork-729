@@ -151,7 +151,7 @@ if( ! class_exists( 'TSK_AbeloHost_Test' ) ) {
 
 			//Script & style for product editor
 			if(!empty($ptype) && $ptype === 'product' && tsk_is_editor()){
-				wp_enqueue_style( 'tsk_pedit_style', TSK_PLUGIN_URL . 'assets/css/admin_pedit.css', array(),TSK_VERSION, );
+				wp_enqueue_style( 'tsk_pedit_style', TSK_PLUGIN_URL . 'assets/css/admin_pedit.css', array(), TSK_VERSION );
 				wp_enqueue_script( 'tsk_pedit_script', TSK_PLUGIN_URL . 'assets/js/admin_pedit.js', array(), TSK_VERSION, true);
 			}
         }
