@@ -23,8 +23,8 @@ Product editor styles
 
 #tsk_image_button img {
 	width: 100%;
-	height: auto;
-	object-fit: contain;
+	height: 100%;
+	object-fit: cover;
 }
 
 #tsk_image_button {
